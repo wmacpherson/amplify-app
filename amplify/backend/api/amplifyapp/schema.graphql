@@ -1,8 +1,15 @@
-# This "input" configures a global authorization rule to enable public access to
-# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
-input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
-
-type Note @model @auth(rules: [{ allow: owner }]) {
+type Prediction @model @auth(rules: [{allow: owner}]) {
   id: ID!
-  text: String!
+  stock_ticker: String
+  stock: String
+  initial_price: Float
+  initial_date: AWSDateTime
+  predicition_price: Float
+  predicition_date: AWSDateTime
+  reasoning: String
+  positive_error: Float
+  negative_error: Float
+  positive_kill_error: Float
+  negative_kill_error: Float
 }
+ 

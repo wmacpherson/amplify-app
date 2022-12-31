@@ -1,54 +1,80 @@
 import './App.css';
-import { createNote, deleteNote} from './graphql/mutations'
-import { listNotes } from './graphql/queries'
+import { createPrediction, updatePrediction, deletePrediction} from './graphql/mutations'
+import { listPredictions, getPrediction } from "./graphql/queries";
 import { withAuthenticator, Button, Text, Flex, Heading } from "@aws-amplify/ui-react";
 import { useCallback, useEffect, useState } from 'react';
 import { API } from 'aws-amplify';
 
 function App({ signOut }) {
-  const [ notes, setNotes ] = useState([])
+  const [ predictions, setPredicitons ] = useState([])
 
-  const fetchNotes = useCallback(async () => {
+  const fetchPredictions = useCallback(async () => {
     const result = await API.graphql({
-      query: listNotes,
+      query: listPredictions,
       authMode: 'AMAZON_COGNITO_USER_POOLS'
     })
-    setNotes(result.data.listNotes.items)
-  }, [setNotes])
+    setPredicitons(result.data.listPredictions.items)
+  }, [setPredicitons])
 
-  const handleCreateNote = useCallback(async () => {
+  const handleCreatePrediciton = useCallback(async () => {
     await API.graphql({
-      query: createNote,
-      variables: { input: { text: window.prompt("New note") } },
+      query: createPrediction,
+      variables: {
+          input: {
+              "stock_ticker": "Lorem ipsum dolor sit amet",
+              "stock": "Lorem ipsum dolor sit amet",
+              "initial_price": 123.45,
+              "initial_date": "1970-01-01T12:30:23.999Z",
+              "predicition_price": 123.45,
+              "predicition_date": "1970-01-01T12:30:23.999Z",
+              "reasoning": "Lorem ipsum dolor sit amet",
+              "positive_error": 123.45,
+              "negative_error": 123.45,
+              "positive_kill_error": 123.45,
+              "negative_kill_error": 123.45
+            }
+          },
       authMode: 'AMAZON_COGNITO_USER_POOLS'
     })
-    fetchNotes()
-  }, [fetchNotes])
+    fetchPredictions()
+  }, [fetchPredictions])
 
-  const handleDeleteNote = useCallback(async (id) => {
+  const handleDeletePrediction = useCallback(async (id) => {
     await API.graphql({
-      query: deleteNote,
-      variables: { input: { id: id } },
+      query: deletePrediction,
+      variables: {
+          input: {
+              id: "YOUR_RECORD_ID"
+          }},
       authMode: 'AMAZON_COGNITO_USER_POOLS'
     })
-    fetchNotes()
-  }, [fetchNotes])
+    fetchPredictions()
+  }, [fetchPredictions])
+
+  // const handleDeleteNote = useCallback(async (id) => {
+  //   await API.graphql({
+  //     query: deleteNote,
+  //     variables: { input: { id: id } },
+  //     authMode: 'AMAZON_COGNITO_USER_POOLS'
+  //   })
+  //   fetchNotes()
+  // }, [fetchNotes])
 
   useEffect(() => {
-    fetchNotes()
-  }, [fetchNotes])
+    fetchPredictions()
+  }, [fetchPredictions])
 
   return (
     <Flex direction={"column"}>
       <Flex justifyContent={'space-between'}>
-        <Heading level={1}>My notes</Heading>
+        <Heading level={1}>My Predicitons</Heading>
         <Button onClick={signOut}>Sign Out</Button>
       </Flex>
       {notes.map(note => <Flex alignItems={'center'}>
         <Text>{note.text}</Text>
-        <Button onClick={() => handleDeleteNote(note.id)}>Remove</Button>
+        <Button onClick={() => handleDeletePrediction(note.id)}>Remove</Button>
       </Flex>)}
-      <Button onClick={handleCreateNote}>Add Note</Button>
+      <Button onClick={handleCreatePrediciton}>Add Prediction</Button>
     </Flex>
   );
 }

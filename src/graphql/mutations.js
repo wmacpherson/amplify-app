@@ -1,42 +1,72 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createNote = /* GraphQL */ `
-  mutation CreateNote(
-    $input: CreateNoteInput!
-    $condition: ModelNoteConditionInput
+export const createPrediction = /* GraphQL */ `
+  mutation CreatePrediction(
+    $input: CreatePredictionInput!
+    $condition: ModelPredictionConditionInput
   ) {
-    createNote(input: $input, condition: $condition) {
+    createPrediction(input: $input, condition: $condition) {
       id
-      text
+      stock_ticker
+      stock
+      initial_price
+      initial_date
+      predicition_price
+      predicition_date
+      reasoning
+      positive_error
+      negative_error
+      positive_kill_error
+      negative_kill_error
       createdAt
       updatedAt
       owner
     }
   }
 `;
-export const updateNote = /* GraphQL */ `
-  mutation UpdateNote(
-    $input: UpdateNoteInput!
-    $condition: ModelNoteConditionInput
+export const updatePrediction = /* GraphQL */ `
+  mutation UpdatePrediction(
+    $input: UpdatePredictionInput!
+    $condition: ModelPredictionConditionInput
   ) {
-    updateNote(input: $input, condition: $condition) {
+    updatePrediction(input: $input, condition: $condition) {
       id
-      text
+      stock_ticker
+      stock
+      initial_price
+      initial_date
+      predicition_price
+      predicition_date
+      reasoning
+      positive_error
+      negative_error
+      positive_kill_error
+      negative_kill_error
       createdAt
       updatedAt
       owner
     }
   }
 `;
-export const deleteNote = /* GraphQL */ `
-  mutation DeleteNote(
-    $input: DeleteNoteInput!
-    $condition: ModelNoteConditionInput
+export const deletePrediction = /* GraphQL */ `
+  mutation DeletePrediction(
+    $input: DeletePredictionInput!
+    $condition: ModelPredictionConditionInput
   ) {
-    deleteNote(input: $input, condition: $condition) {
+    deletePrediction(input: $input, condition: $condition) {
       id
-      text
+      stock_ticker
+      stock
+      initial_price
+      initial_date
+      predicition_price
+      predicition_date
+      reasoning
+      positive_error
+      negative_error
+      positive_kill_error
+      negative_kill_error
       createdAt
       updatedAt
       owner

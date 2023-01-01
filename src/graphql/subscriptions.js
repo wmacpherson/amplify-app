@@ -1,42 +1,72 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateNote = /* GraphQL */ `
-  subscription OnCreateNote(
-    $filter: ModelSubscriptionNoteFilterInput
+export const onCreatePrediction = /* GraphQL */ `
+  subscription OnCreatePrediction(
+    $filter: ModelSubscriptionPredictionFilterInput
     $owner: String
   ) {
-    onCreateNote(filter: $filter, owner: $owner) {
+    onCreatePrediction(filter: $filter, owner: $owner) {
       id
-      text
+      stock_ticker
+      stock
+      initial_price
+      initial_date
+      predicition_price
+      predicition_date
+      reasoning
+      positive_error
+      negative_error
+      positive_kill_error
+      negative_kill_error
       createdAt
       updatedAt
       owner
     }
   }
 `;
-export const onUpdateNote = /* GraphQL */ `
-  subscription OnUpdateNote(
-    $filter: ModelSubscriptionNoteFilterInput
+export const onUpdatePrediction = /* GraphQL */ `
+  subscription OnUpdatePrediction(
+    $filter: ModelSubscriptionPredictionFilterInput
     $owner: String
   ) {
-    onUpdateNote(filter: $filter, owner: $owner) {
+    onUpdatePrediction(filter: $filter, owner: $owner) {
       id
-      text
+      stock_ticker
+      stock
+      initial_price
+      initial_date
+      predicition_price
+      predicition_date
+      reasoning
+      positive_error
+      negative_error
+      positive_kill_error
+      negative_kill_error
       createdAt
       updatedAt
       owner
     }
   }
 `;
-export const onDeleteNote = /* GraphQL */ `
-  subscription OnDeleteNote(
-    $filter: ModelSubscriptionNoteFilterInput
+export const onDeletePrediction = /* GraphQL */ `
+  subscription OnDeletePrediction(
+    $filter: ModelSubscriptionPredictionFilterInput
     $owner: String
   ) {
-    onDeleteNote(filter: $filter, owner: $owner) {
+    onDeletePrediction(filter: $filter, owner: $owner) {
       id
-      text
+      stock_ticker
+      stock
+      initial_price
+      initial_date
+      predicition_price
+      predicition_date
+      reasoning
+      positive_error
+      negative_error
+      positive_kill_error
+      negative_kill_error
       createdAt
       updatedAt
       owner

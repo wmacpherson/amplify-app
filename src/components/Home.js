@@ -1,9 +1,14 @@
 // components/Home.js
-import { Heading } from '@aws-amplify/ui-react';
+import { Flex, Heading, Divider } from '@aws-amplify/ui-react';
 export function Home() {
   return (
+    <Flex direction="column">
     <Heading level={3}>
-      Please use the buttons at the top to test out protected routes!
+      Home Page
     </Heading>
+    <Divider
+      size="small"
+      orientation="horizontal" />
+    </Flex>
   );
 }

@@ -1,8 +1,8 @@
 // components/Layout.js
 import React from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { useAuthenticator, Button, Heading, View } from '@aws-amplify/ui-react';
-
+import { useAuthenticator, Button, Heading, View, Grid} from '@aws-amplify/ui-react';
+import '../css/layout.css';
 export function Layout() {
   const { route, signOut } = useAuthenticator((context) => [
     context.route,
@@ -17,21 +17,19 @@ export function Layout() {
   return (
     <>
       <nav>
-        <Button onClick={() => navigate('/')}>Home</Button>
-        <Button onClick={() => navigate('/protected')}>
-          First Protected Route
+        <Button row={1}column={1} onClick={() => navigate('/')}>Home</Button>
+        <Button row={1}column={2} onClick={() => navigate('/protected')}>
+        Your Profile
         </Button>
         {route !== 'authenticated' ? (
-          <Button onClick={() => navigate('/login')}>Login</Button>
+        <Button row={1}column={10} onClick={() => navigate('/login')}>Login</Button>
         ) : (
-          <Button onClick={() => logOut()}>Logout</Button>
+        <Button row={1}column={10} onClick={() => logOut()}>Logout</Button>
         )}
-      </nav>
-      <Heading level={1}>Example Auth Routes App</Heading>
-      <View>
+        <View row={1}column={9}>
         {route === 'authenticated' ? 'You are logged in!' : 'Please Login!'}
       </View>
-
+      </nav>
       <Outlet />
     </>
   );

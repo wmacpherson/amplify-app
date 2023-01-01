@@ -1,7 +1,7 @@
 import './App.css';
-import { createPrediction, updatePrediction, deletePrediction} from './graphql/mutations'
+import { createPrediction, updatePrediction, deletePrediction, createUser} from './graphql/mutations'
 import { listPredictions, getPrediction } from "./graphql/queries";
-import { withAuthenticator, Button, Text, Flex, Heading } from "@aws-amplify/ui-react";
+import { withAuthenticator, Button, Text, Flex, Heading, Grid} from "@aws-amplify/ui-react";
 import { useCallback, useEffect, useState } from 'react';
 import { API } from 'aws-amplify';
 
@@ -43,36 +43,27 @@ function App({ signOut }) {
     await API.graphql({
       query: deletePrediction,
       variables: {
-          input: {
-              id: "YOUR_RECORD_ID"
-          }},
+          input: {id: id }},
       authMode: 'AMAZON_COGNITO_USER_POOLS'
     })
     fetchPredictions()
   }, [fetchPredictions])
-
-  // const handleDeleteNote = useCallback(async (id) => {
-  //   await API.graphql({
-  //     query: deleteNote,
-  //     variables: { input: { id: id } },
-  //     authMode: 'AMAZON_COGNITO_USER_POOLS'
-  //   })
-  //   fetchNotes()
-  // }, [fetchNotes])
 
   useEffect(() => {
     fetchPredictions()
   }, [fetchPredictions])
 
   return (
-    <Flex direction={"column"}>
-      <Flex justifyContent={'space-between'}>
-        <Heading level={1}>My Predicitons</Heading>
-        <Button onClick={signOut}>Sign Out</Button>
-      </Flex>
-      {notes.map(note => <Flex alignItems={'center'}>
-        <Text>{note.text}</Text>
-        <Button onClick={() => handleDeletePrediction(note.id)}>Remove</Button>
+    <Flex direction={"column"} >
+        <Grid templateColumns="800px 100px 100px" gap="2%" backgroundColor="#000A68">
+          <Heading level={1} color='white' column={1} row={1} paddingLeft="1%">Name</Heading>
+          <Heading level={3} color='white' column={1} row={2} paddingLeft="1%">Position</Heading>
+          <Heading level={3} color='white' column={1} row={3} paddingLeft="1%">Job</Heading>
+          <Button onClick={signOut} color='white' column={5} row={1}>Sign Out</Button>
+        </Grid>
+      {predictions.map(prediction => <Flex alignItems={'bottom'}>
+        <Text key={prediction}>{prediction.text}</Text>
+        <Button onClick={() => handleDeletePrediction(prediction.id)}>Remove</Button>
       </Flex>)}
       <Button onClick={handleCreatePrediciton}>Add Prediction</Button>
     </Flex>

@@ -1,8 +1,9 @@
 // components/Layout.js
 import React from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { useAuthenticator, Button, Heading, View, Grid} from '@aws-amplify/ui-react';
+import { useAuthenticator, Button, View} from '@aws-amplify/ui-react';
 import '../css/layout.css';
+
 export function Layout() {
   const { route, signOut } = useAuthenticator((context) => [
     context.route,

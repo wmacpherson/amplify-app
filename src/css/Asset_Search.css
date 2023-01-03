@@ -1,0 +1,9 @@
+.my-scrollview {
+    height: 300px;
+    width: 100%;
+    background-color: var(--amplify-colors-blue-10);
+  }
+
+  .search-input{
+    width: 100%;
+  }

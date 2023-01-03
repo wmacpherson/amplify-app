@@ -1,5 +1,5 @@
 // components/Protected.js
-import { useAuthenticator, Heading, Grid, Flex, Divider, Text } from '@aws-amplify/ui-react';
+import { useAuthenticator, Flex, Text } from '@aws-amplify/ui-react';
 import { Auth } from 'aws-amplify';
 
 Auth.currentAuthenticatedUser({

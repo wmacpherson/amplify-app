@@ -73,3 +73,22 @@
 // }
 
 // export default withAuthenticator(App)
+
+// await DataStore.save(
+//     new Prediction({
+// 		"stock_ticker": "Lorem ipsum dolor sit amet",
+// 		"stock": "Lorem ipsum dolor sit amet",
+// 		"initial_price": 123.45,
+// 		"initial_date": "1970-01-01T12:30:23.999Z",
+// 		"predicition_price": 123.45,
+// 		"predicition_date": "1970-01-01T12:30:23.999Z",
+// 		"reasoning": "Lorem ipsum dolor sit amet",
+// 		"positive_error": 123.45,
+// 		"negative_error": 123.45,
+// 		"positive_kill_error": 123.45,
+// 		"negative_kill_error": 123.45
+// 	})
+// // );
+
+// const models = await DataStore.query(Prediction);
+// console.log(models);

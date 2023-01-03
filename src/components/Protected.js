@@ -1,7 +1,11 @@
 // components/Protected.js
-import { useAuthenticator, Flex, Heading, Grid, Divider } from '@aws-amplify/ui-react';
+import { useAuthenticator, Flex, Heading, Grid, Divider, Card } from '@aws-amplify/ui-react';
 import { Auth } from 'aws-amplify';
 import React, { useState } from 'react';
+import { 
+  NewForm1 
+} from '../ui-components';
+import "../css/Protected.css"
 // Auth.currentAuthenticatedUser({
 //   bypassCache: false // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
 // })
@@ -22,16 +26,15 @@ export function Protected() {
     })
   return(
     <Grid>
-    <Heading level={3} row={1}>
-      Home Page
-    </Heading>
-    <Divider
-      size="small"
-      orientation="horizontal" 
-      row={2}/>
-    <Flex direction='column'>
-        <Heading level={5} column={2}> Welcome {currentUser}</Heading>
-    </Flex>
+      <Heading level={2} row={1}>
+        Your Profile
+      </Heading>
+      <Heading level={3} column={1} row={2}> Welcome {currentUser}</Heading>
+      <Heading level={5} column={1} row={3}> View your Predictions Below</Heading>
+      <Heading level={5} column={3} row={3}> Make a Prediction</Heading>
+      <Card classname='createPrediction' column={3} row={4} variation="elevated"> 
+        <NewForm1 />
+      </Card>
     </Grid>
   );
 }

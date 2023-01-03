@@ -14,7 +14,7 @@ export function Home() {
         orientation="horizontal" 
         row={2}/>
       <Card row={3}>
-        <Text>Here is a list of all avaliable stocks</Text>
+        <Heading level={5}>Stock Search</Heading>
         <Asset_Search />
       </Card>
     </Grid>

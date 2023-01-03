@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Flex, ScrollView, TextField, Table, TableHead, TableCell, TableRow, TableFoot} from '@aws-amplify/ui-react';
+import { Card, ScrollView, TextField, Table, TableHead, TableCell, TableRow, TableFoot} from '@aws-amplify/ui-react';
 import * as Papa from 'papaparse';
 import "../css/Asset_Search.css"
 import { GraphSearch } from './Graph_Search';
@@ -36,7 +36,7 @@ function Asset_Search(){
         });
     }
     return (
-        <Flex direction={'column'}>
+        <Card variation="elevated">
             <div>
                 <label htmlFor="search-form">
                     <TextField
@@ -50,8 +50,8 @@ function Asset_Search(){
                     />
                 </label>
             </div>
-                <ScrollView className="my-scrollview">
-                <Table caption="" highlightOnHover={true}>
+                <ScrollView className="my-scrollview" >
+                <Table caption="" highlightOnHover={true} variation="elevated">
                     <TableHead>
                         <TableRow>
                         <TableCell as="th">Symbol</TableCell>
@@ -68,7 +68,7 @@ function Asset_Search(){
                 </Table>
                 </ScrollView>
             <GraphSearch />
-        </Flex>
+        </Card>
     );
     }
 

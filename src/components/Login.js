@@ -12,6 +12,16 @@ export function Login() {
         isRequired: true,
         label: 'Username:'
       },
+      firm: {
+        placeholder: 'Enter Your Firm Name',
+        isRequired: false,
+        label: 'Firm',
+      },
+      job: {
+        placeholder: 'Enter your Position within the Firm',
+        isRequired: false,
+        lable: 'Job',
+      }
     },
   }
   const { route } = useAuthenticator((context) => [context.route]);

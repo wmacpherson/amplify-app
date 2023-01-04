@@ -8,9 +8,9 @@ export function Login() {
   const formFields = {
     signUp: {
       username: {
-        placeholder: 'Enter Your Email Here',
+        placeholder: 'Enter Your Username Here',
         isRequired: true,
-        label: 'Email:'
+        label: 'Username:'
       },
     },
   }

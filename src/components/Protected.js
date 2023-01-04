@@ -9,7 +9,7 @@ export function Protected() {
   const [currentUser, setUser] = useState("");
   const { route } = useAuthenticator((context) => [context.route]);
   const message =
-    route === 'authenticated' ? 'Your Profile' : 'Loading...';
+    route === 'authenticated' ? 'Showing Profile' : 'Loading...';
   console.log(message)
   Auth.currentAuthenticatedUser({
     bypassCache: false 

@@ -4,5 +4,7 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
+export { default as Predictions } from "./Predictions";
 export { default as studioTheme } from "./studioTheme";
+export { default as Predicition } from "./Predicition";
 export { default as NewForm1 } from "./NewForm1";

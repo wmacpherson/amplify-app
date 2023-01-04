@@ -1,14 +1,22 @@
 // components/Home.js
-import { Flex, Heading, Divider } from '@aws-amplify/ui-react';
+import { Heading, Divider, Card, Text, Grid } from '@aws-amplify/ui-react';
+import Asset_Search from './Asset_Search';
+import * as React from 'react';
 export function Home() {
+
   return (
-    <Flex direction="column">
-    <Heading level={3}>
-      Home Page
-    </Heading>
-    <Divider
-      size="small"
-      orientation="horizontal" />
-    </Flex>
+    <Grid>
+      <Heading level={3} row={1}>
+        Home Page
+      </Heading>
+      <Divider
+        size="small"
+        orientation="horizontal" 
+        row={2}/>
+      <Card row={3}>
+        <Heading level={5}>Stock Search</Heading>
+        <Asset_Search />
+      </Card>
+    </Grid>
   );
 }

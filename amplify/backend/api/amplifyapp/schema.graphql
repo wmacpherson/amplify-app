@@ -11,5 +11,4 @@ type Prediction @model @auth(rules: [{allow: owner}]) {
   negative_error: Float
   positive_kill_error: Float
   negative_kill_error: Float
-}
- 
+} 

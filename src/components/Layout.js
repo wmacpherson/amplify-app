@@ -1,4 +1,3 @@
-// components/Layout.js
 import React from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { useAuthenticator, Button, View} from '@aws-amplify/ui-react';

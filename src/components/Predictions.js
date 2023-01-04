@@ -1,4 +1,4 @@
-import { Card, Grid, Table, TableCell, TableHead, TableRow, TableFoot } from "@aws-amplify/ui-react";
+import { Card, Table, TableCell, TableHead, TableRow, TableFoot } from "@aws-amplify/ui-react";
 import { DataStore } from '@aws-amplify/datastore';
 import { Prediction } from '../models';
 import React, { useState } from 'react';

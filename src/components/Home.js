@@ -1,4 +1,3 @@
-// components/Home.js
 import { Heading, Divider, Card, Text, Grid } from '@aws-amplify/ui-react';
 import Asset_Search from './Asset_Search';
 import * as React from 'react';
